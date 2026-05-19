@@ -167,15 +167,34 @@ function speak(text, lang='vi-VN'){
 }
 
 // 🎲 Random câu hỏi: trộn và lấy 10 câu
-function pickQuestions(subject, mode){
+function pickQuestions(subject, mode) {
   const diff = DIFF[mode] || 1;
-  const pool = state.activities.filter(a => a.subject===subject && a.difficulty<=diff);
-  const base = pool.length >= 6 ? pool : state.activities.filter(a => a.subject===subject);
-  const shuffled = [...base].sort(() => Math.random() - 0.5);
+
+  const pool = state.activities.filter(q =>
+    q.subject === subject && (q.difficulty ?? 1) <= diff
+  );
+
+  const base = pool.length > 0
+    ? pool
+    : state.activities.filter(q => q.subject === subject);
+
+  const shuffled = shuffleInPlace([...base]);
   const picked = shuffled.slice(0, 10);
-  while(picked.length < 10 && base.length){
-    picked.push(base[Math.floor(Math.random()*base.length)]);
+
+  // Nếu vẫn thiếu thì cố gắng bù bằng câu chưa có (nếu còn)
+  const pickedIds = new Set(picked.map(x => x.id));
+  const remaining = base.filter(x => !pickedIds.has(x.id));
+
+  while (picked.length < 10 && remaining.length > 0) {
+    const idx = Math.floor(Math.random() * remaining.length);
+    picked.push(remaining.splice(idx, 1)[0]);
   }
+
+  // Nếu vẫn thiếu (base ít hơn 10) thì mới cho phép lặp
+  while (picked.length < 10 && base.length > 0) {
+    picked.push(base[Math.floor(Math.random() * base.length)]);
+  }
+
   return picked;
 }
 
@@ -610,6 +629,14 @@ async function boot(){
   renderTopBar();
   wireEvents();
   showView('home');
+}
+
+function shuffleInPlace(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
 boot();
