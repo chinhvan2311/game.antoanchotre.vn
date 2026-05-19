@@ -303,6 +303,48 @@
       }
     },
     {
+      "id": "to_hinh_1",
+      "type": "chon_hinh",
+      "subject": "toan",
+      "difficulty": 1,
+      "prompt": "Đây là hình gì?",
+      "shape": "⬜",
+      "choices": ["Hình vuông", "Hình tam giác", "Hình tròn"],
+      "answer": "Hình vuông",
+      "tts": {
+        "text": "Đây là hình gì?",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_hinh_2",
+      "type": "chon_hinh",
+      "subject": "toan",
+      "difficulty": 1,
+      "prompt": "Đây là hình gì?",
+      "shape": "⭕",
+      "choices": ["Hình vuông", "Hình tròn", "Hình tam giác"],
+      "answer": "Hình tròn",
+      "tts": {
+        "text": "Đây là hình gì?",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_hinh_3",
+      "type": "chon_hinh",
+      "subject": "toan",
+      "difficulty": 1,
+      "prompt": "Đây là hình gì?",
+      "shape": "🔺",
+      "choices": ["Hình tam giác","Hình vuông", "Hình tròn"],
+      "answer": "Hình tam giác",
+      "tts": {
+        "text": "Đây là hình gì?",
+        "lang": "vi-VN"
+      }
+    },
+    {
       "id": "en_vocab_1",
       "type": "chon_dap_an",
       "subject": "english",
