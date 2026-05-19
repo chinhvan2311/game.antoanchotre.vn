@@ -478,6 +478,7 @@ function renderQuestion() {
   else if (q.type === "dien_chu") area.appendChild(renderDienChu(q));
   else if (q.type === "dem_emoji") area.appendChild(renderDemEmoji(q));
   else if (q.type === "alphabet") area.appendChild(renderAlphabet(q));
+  else if (q.type === 'chon_hinh') area.appendChild(renderShapeChoice(q));
   else area.appendChild(renderChonDapAn(q));
 }
 
@@ -643,6 +644,26 @@ function renderAlphabet(q) {
     choices.appendChild(btn);
   });
   wrap.appendChild(choices);
+  return wrap;
+}
+
+function renderShapeChoice(q){
+  const wrap = document.createElement('div');
+  wrap.innerHTML = `
+    <div class="text-center text-3xl">📐</div>
+    <div class="mt-2 text-center text-7xl">${q.shape || '⬜'}</div>
+    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2" id="choices"></div>
+  `;
+
+  const box = wrap.querySelector('#choices');
+  q.choices.forEach(c=>{
+    const btn=document.createElement('button');
+    btn.className='piece text-center';
+    btn.textContent=c;
+    btn.onclick=()=> String(c)===String(q.answer) ? handleCorrect() : handleWrong();
+    box.appendChild(btn);
+  });
+
   return wrap;
 }
 
