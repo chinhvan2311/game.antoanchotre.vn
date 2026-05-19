@@ -69,7 +69,7 @@ const state = {
 };
 
 async function loadActivities() {
-  const res = await fetch("data/activities.json");
+  const res = await fetch("activities.json");
   const data = await res.json();
   state.activities = data.activities || [];
 }
