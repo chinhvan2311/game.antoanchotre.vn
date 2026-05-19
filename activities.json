@@ -28,15 +28,15 @@
       "difficulty": 1,
       "prompt": "Ghép 2 thẻ để tạo tiếng đúng",
       "pieces": [
-        "m",
-        "e"
+        "e",
+        "m"
       ],
       "answer": "me",
       "tts": {
         "text": "me",
         "lang": "vi-VN"
       }
-    },
+    },    
     {
       "id": "tv_ghep_3",
       "type": "ghep_am",
@@ -54,6 +54,23 @@
       }
     },
     {
+      "id": "tv_ghep_4",
+      "type": "ghep_am",
+      "subject": "tapdoc",
+      "difficulty": 1,
+      "prompt": "Ghép 2 thẻ để tạo tiếng đúng",
+      "pieces": [
+        "m",
+        "e",
+        "n"
+      ],
+      "answer": "em",
+      "tts": {
+        "text": "em",
+        "lang": "vi-VN"
+      }
+    },
+    {
       "id": "tv_sx_1",
       "type": "sap_xep",
       "subject": "tapdoc",
@@ -61,8 +78,8 @@
       "prompt": "Sắp xếp thành câu đúng",
       "pieces": [
         "Em",
-        "đi",
-        "học"
+        "học",
+        "đi"
       ],
       "answer": "Em đi học",
       "tts": {
@@ -79,9 +96,9 @@
       "pieces": [
         "Bé",
         "ăn",
-        "cơm",
         "ở",
-        "nhà"
+        "nhà",
+        "cơm"
       ],
       "answer": "Bé ăn cơm ở nhà",
       "tts": {
@@ -100,9 +117,9 @@
         "nay",
         "em",
         "đến",
-        "trường",
         "rất",
-        "vui"
+        "vui",
+        "trường"
       ],
       "answer": "Hôm nay em đến trường rất vui",
       "tts": {
@@ -129,11 +146,30 @@
       }
     },
     {
+      "id": "tv_dien_2",
+      "type": "dien_chu",
+      "subject": "tapdoc",
+      "difficulty": 1,
+      "prompt": "Điền chữ còn thiếu: m_o",
+      "template": "m_o",
+      "choices": [
+        "a",
+        "o",
+        "u",
+        "è"
+      ],
+      "answer": "mèo",
+      "tts": {
+        "text": "mèo",
+        "lang": "vi-VN"
+      }
+    },
+    {
       "id": "tv_hinh_1",
       "type": "chon_dap_an",
       "subject": "tapdoc",
       "difficulty": 1,
-      "prompt": "🐶 là gì?",
+      "prompt": "🐶 là con gì?",
       "choices": [
         "con chó",
         "con mèo",
@@ -150,7 +186,7 @@
       "type": "chon_dap_an",
       "subject": "tapdoc",
       "difficulty": 1,
-      "prompt": "🍎 là gì?",
+      "prompt": "🍎 là quả gì?",
       "choices": [
         "quả táo",
         "quả chuối",
@@ -159,6 +195,23 @@
       "answer": "quả táo",
       "tts": {
         "text": "quả táo",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_hinh_3",
+      "type": "chon_dap_an",
+      "subject": "tapdoc",
+      "difficulty": 1,
+      "prompt": "💣 là quả gì?",
+      "choices": [
+        "quả táo",
+        "quả bom",
+        "quả cam"
+      ],
+      "answer": "quả bom",
+      "tts": {
+        "text": "quả bom",
         "lang": "vi-VN"
       }
     },
@@ -187,8 +240,8 @@
       "prompt": "9 - 5 = ?",
       "choices": [
         "3",
-        "4",
-        "5"
+        "5",
+        "4"
       ],
       "answer": "4",
       "tts": {
@@ -284,6 +337,40 @@
       }
     },
     {
+      "id": "en_vocab_3",
+      "type": "chon_dap_an",
+      "subject": "english",
+      "difficulty": 1,
+      "prompt": "🐶 là từ nào?",
+      "choices": [
+        "cat",
+        "dog",
+        "fish"
+      ],
+      "answer": "dog",
+      "tts": {
+        "text": "dog",
+        "lang": "en-US"
+      }
+    },
+    {
+      "id": "en_vocab_4",
+      "type": "chon_dap_an",
+      "subject": "english",
+      "difficulty": 1,
+      "prompt": "🐟 là từ nào?",
+      "choices": [
+        "cat",
+        "dog",
+        "fish"
+      ],
+      "answer": "fish",
+      "tts": {
+        "text": "fish",
+        "lang": "en-US"
+      }
+    },
+    {
       "id": "en_alpha_1",
       "type": "alphabet",
       "subject": "english",
@@ -298,6 +385,42 @@
       "answer": "A",
       "tts": {
         "text": "A",
+        "lang": "en-US"
+      }
+    },
+    {
+      "id": "en_alpha_2",
+      "type": "alphabet",
+      "subject": "english",
+      "difficulty": 1,
+      "prompt": "Chữ nào đây? (bấm nghe)",
+      "letter": "B",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "B",
+      "tts": {
+        "text": "B",
+        "lang": "en-US"
+      }
+    },
+    {
+      "id": "en_alpha_3",
+      "type": "alphabet",
+      "subject": "english",
+      "difficulty": 1,
+      "prompt": "Chữ nào đây? (bấm nghe)",
+      "letter": "K",
+      "choices": [
+        "A",
+        "B",
+        "K"
+      ],
+      "answer": "K",
+      "tts": {
+        "text": "K",
         "lang": "en-US"
       }
     }
