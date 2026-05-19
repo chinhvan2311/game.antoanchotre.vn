@@ -749,7 +749,6 @@ function wireEvents() {
     renderKidsModal();
     renderAvatarPicker("🧒");
     openModal("modalKids");
-    enderAvatarPicker("🧒");
   };
   $("#btnOpenLeaderboard").onclick = () => {
     renderLeaderboard("all");
@@ -846,8 +845,10 @@ async function boot() {
 
   const kid = getCurrentKid() || state.kids[0] || null;
   if (kid) setCurrentKid(kid);
-  else openModal("modalKids");
-
+  else {
+    openModal("modalKids");
+    renderAvatarPicker("🧒");
+  }
   renderTopBar();
   wireEvents();
   showView("home");
