@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "version": "1.0",
+    "language": "vi",
+    "updatedAt": "2026-05-19"
+  },
+  "activities": [
+    {
+      "id": "tv_ghep_0001",
+      "type": "ghep_am",
+      "subject": "tapdoc",
+      "topic": "am_co_ban",
+      "difficulty": 1,
+      "prompt": "Ghép 2 thẻ để tạo tiếng đúng",
+      "pieces": [
+        "b",
+        "a"
+      ],
+      "answer": "ba",
+      "choices": [
+        "ba",
+        "ab",
+        "bb"
+      ],
+      "tts": {
+        "text": "ba",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_ghep_0002",
+      "type": "ghep_am",
+      "subject": "tapdoc",
+      "topic": "am_co_ban",
+      "difficulty": 1,
+      "prompt": "Ghép 2 thẻ để tạo tiếng đúng",
+      "pieces": [
+        "m",
+        "e"
+      ],
+      "answer": "me",
+      "choices": [
+        "me",
+        "em",
+        "mm"
+      ],
+      "tts": {
+        "text": "me",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_ghep_0003",
+      "type": "ghep_am",
+      "subject": "tapdoc",
+      "topic": "am_van",
+      "difficulty": 2,
+      "prompt": "Ghép âm đầu + vần",
+      "pieces": [
+        "b",
+        "an"
+      ],
+      "answer": "ban",
+      "choices": [
+        "ban",
+        "bna",
+        "nab"
+      ],
+      "tts": {
+        "text": "ban",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_sapxep_0001",
+      "type": "sap_xep",
+      "subject": "tapdoc",
+      "topic": "cau_ngan",
+      "difficulty": 1,
+      "prompt": "Sắp xếp thành câu đúng",
+      "pieces": [
+        "Em",
+        "đi",
+        "học"
+      ],
+      "answer": "Em đi học",
+      "tts": {
+        "text": "Em đi học",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_sapxep_0002",
+      "type": "sap_xep",
+      "subject": "tapdoc",
+      "topic": "cau_ngan",
+      "difficulty": 2,
+      "prompt": "Sắp xếp thành câu đúng",
+      "pieces": [
+        "Bé",
+        "ăn",
+        "cơm",
+        "ở",
+        "nhà"
+      ],
+      "answer": "Bé ăn cơm ở nhà",
+      "tts": {
+        "text": "Bé ăn cơm ở nhà",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_cong_0001",
+      "type": "chon_dap_an",
+      "subject": "toan",
+      "topic": "cong_tru",
+      "difficulty": 1,
+      "prompt": "3 + 4 = ?",
+      "choices": [
+        "6",
+        "7",
+        "8"
+      ],
+      "answer": "7",
+      "tts": {
+        "text": "Ba cộng bốn bằng mấy?",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_tru_0001",
+      "type": "chon_dap_an",
+      "subject": "toan",
+      "topic": "cong_tru",
+      "difficulty": 1,
+      "prompt": "9 - 5 = ?",
+      "choices": [
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "4",
+      "tts": {
+        "text": "Chín trừ năm bằng mấy?",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_ss_0001",
+      "type": "chon_dap_an",
+      "subject": "toan",
+      "topic": "so_sanh",
+      "difficulty": 2,
+      "prompt": "7 ? 5 (chọn dấu)",
+      "choices": [
+        ">",
+        "<",
+        "="
+      ],
+      "answer": ">",
+      "tts": {
+        "text": "Bảy so với năm thế nào?",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "en_vocab_0001",
+      "type": "chon_dap_an",
+      "subject": "english",
+      "topic": "animals",
+      "difficulty": 1,
+      "prompt": "🐱 là từ nào?",
+      "choices": [
+        "cat",
+        "dog",
+        "fish"
+      ],
+      "answer": "cat",
+      "tts": {
+        "text": "cat",
+        "lang": "en-US"
+      }
+    },
+    {
+      "id": "en_vocab_0002",
+      "type": "chon_dap_an",
+      "subject": "english",
+      "topic": "colors",
+      "difficulty": 1,
+      "prompt": "🌈 có thể liên quan tới màu sắc! Chọn từ đúng:",
+      "choices": [
+        "red",
+        "color",
+        "blue"
+      ],
+      "answer": "color",
+      "tts": {
+        "text": "color",
+        "lang": "en-US"
+      }
+    }
+  ]
+}
