@@ -1,15 +1,14 @@
 {
   "meta": {
-    "version": "1.0",
+    "version": "1.1",
     "language": "vi",
     "updatedAt": "2026-05-19"
   },
   "activities": [
     {
-      "id": "tv_ghep_0001",
+      "id": "tv_ghep_1",
       "type": "ghep_am",
       "subject": "tapdoc",
-      "topic": "am_co_ban",
       "difficulty": 1,
       "prompt": "Ghép 2 thẻ để tạo tiếng đúng",
       "pieces": [
@@ -17,21 +16,15 @@
         "a"
       ],
       "answer": "ba",
-      "choices": [
-        "ba",
-        "ab",
-        "bb"
-      ],
       "tts": {
         "text": "ba",
         "lang": "vi-VN"
       }
     },
     {
-      "id": "tv_ghep_0002",
+      "id": "tv_ghep_2",
       "type": "ghep_am",
       "subject": "tapdoc",
-      "topic": "am_co_ban",
       "difficulty": 1,
       "prompt": "Ghép 2 thẻ để tạo tiếng đúng",
       "pieces": [
@@ -39,21 +32,15 @@
         "e"
       ],
       "answer": "me",
-      "choices": [
-        "me",
-        "em",
-        "mm"
-      ],
       "tts": {
         "text": "me",
         "lang": "vi-VN"
       }
     },
     {
-      "id": "tv_ghep_0003",
+      "id": "tv_ghep_3",
       "type": "ghep_am",
       "subject": "tapdoc",
-      "topic": "am_van",
       "difficulty": 2,
       "prompt": "Ghép âm đầu + vần",
       "pieces": [
@@ -61,21 +48,15 @@
         "an"
       ],
       "answer": "ban",
-      "choices": [
-        "ban",
-        "bna",
-        "nab"
-      ],
       "tts": {
         "text": "ban",
         "lang": "vi-VN"
       }
     },
     {
-      "id": "tv_sapxep_0001",
+      "id": "tv_sx_1",
       "type": "sap_xep",
       "subject": "tapdoc",
-      "topic": "cau_ngan",
       "difficulty": 1,
       "prompt": "Sắp xếp thành câu đúng",
       "pieces": [
@@ -90,10 +71,9 @@
       }
     },
     {
-      "id": "tv_sapxep_0002",
+      "id": "tv_sx_2",
       "type": "sap_xep",
       "subject": "tapdoc",
-      "topic": "cau_ngan",
       "difficulty": 2,
       "prompt": "Sắp xếp thành câu đúng",
       "pieces": [
@@ -110,10 +90,82 @@
       }
     },
     {
-      "id": "to_cong_0001",
+      "id": "tv_sx_3",
+      "type": "sap_xep",
+      "subject": "tapdoc",
+      "difficulty": 3,
+      "prompt": "Sắp xếp thành câu đúng",
+      "pieces": [
+        "Hôm",
+        "nay",
+        "em",
+        "đến",
+        "trường",
+        "rất",
+        "vui"
+      ],
+      "answer": "Hôm nay em đến trường rất vui",
+      "tts": {
+        "text": "Hôm nay em đến trường rất vui",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_dien_1",
+      "type": "dien_chu",
+      "subject": "tapdoc",
+      "difficulty": 1,
+      "prompt": "Điền chữ còn thiếu: c_",
+      "template": "c_",
+      "choices": [
+        "a",
+        "o",
+        "u"
+      ],
+      "answer": "ca",
+      "tts": {
+        "text": "ca",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_hinh_1",
+      "type": "chon_dap_an",
+      "subject": "tapdoc",
+      "difficulty": 1,
+      "prompt": "🐶 là gì?",
+      "choices": [
+        "con chó",
+        "con mèo",
+        "con cá"
+      ],
+      "answer": "con chó",
+      "tts": {
+        "text": "con chó",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_hinh_2",
+      "type": "chon_dap_an",
+      "subject": "tapdoc",
+      "difficulty": 1,
+      "prompt": "🍎 là gì?",
+      "choices": [
+        "quả táo",
+        "quả chuối",
+        "quả cam"
+      ],
+      "answer": "quả táo",
+      "tts": {
+        "text": "quả táo",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_cong_1",
       "type": "chon_dap_an",
       "subject": "toan",
-      "topic": "cong_tru",
       "difficulty": 1,
       "prompt": "3 + 4 = ?",
       "choices": [
@@ -128,10 +180,9 @@
       }
     },
     {
-      "id": "to_tru_0001",
+      "id": "to_tru_1",
       "type": "chon_dap_an",
       "subject": "toan",
-      "topic": "cong_tru",
       "difficulty": 1,
       "prompt": "9 - 5 = ?",
       "choices": [
@@ -146,10 +197,45 @@
       }
     },
     {
-      "id": "to_ss_0001",
+      "id": "to_dem_1",
+      "type": "dem_emoji",
+      "subject": "toan",
+      "difficulty": 1,
+      "prompt": "Đếm số ⭐ dưới đây:",
+      "emoji": "⭐",
+      "count": 5,
+      "choices": [
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": "5",
+      "tts": {
+        "text": "Con hãy đếm số ngôi sao",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_day_1",
       "type": "chon_dap_an",
       "subject": "toan",
-      "topic": "so_sanh",
+      "difficulty": 2,
+      "prompt": "2, 4, __, 8, 10",
+      "choices": [
+        "5",
+        "6",
+        "7"
+      ],
+      "answer": "6",
+      "tts": {
+        "text": "Hai, bốn, mấy, tám, mười?",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_ss_1",
+      "type": "chon_dap_an",
+      "subject": "toan",
       "difficulty": 2,
       "prompt": "7 ? 5 (chọn dấu)",
       "choices": [
@@ -164,10 +250,9 @@
       }
     },
     {
-      "id": "en_vocab_0001",
+      "id": "en_vocab_1",
       "type": "chon_dap_an",
       "subject": "english",
-      "topic": "animals",
       "difficulty": 1,
       "prompt": "🐱 là từ nào?",
       "choices": [
@@ -182,20 +267,37 @@
       }
     },
     {
-      "id": "en_vocab_0002",
+      "id": "en_vocab_2",
       "type": "chon_dap_an",
       "subject": "english",
-      "topic": "colors",
       "difficulty": 1,
-      "prompt": "🌈 có thể liên quan tới màu sắc! Chọn từ đúng:",
+      "prompt": "Chọn từ chỉ màu ĐỎ:",
       "choices": [
         "red",
-        "color",
-        "blue"
+        "blue",
+        "green"
       ],
-      "answer": "color",
+      "answer": "red",
       "tts": {
-        "text": "color",
+        "text": "red",
+        "lang": "en-US"
+      }
+    },
+    {
+      "id": "en_alpha_1",
+      "type": "alphabet",
+      "subject": "english",
+      "difficulty": 1,
+      "prompt": "Chữ nào đây? (bấm nghe)",
+      "letter": "A",
+      "choices": [
+        "A",
+        "B",
+        "C"
+      ],
+      "answer": "A",
+      "tts": {
+        "text": "A",
         "lang": "en-US"
       }
     }
