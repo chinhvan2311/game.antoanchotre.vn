@@ -650,7 +650,7 @@ function renderAlphabet(q) {
 function renderShapeChoice(q){
   const wrap = document.createElement('div');
   wrap.innerHTML = `
-    <div class="text-center text-3xl">📐</div>
+    <div class="text-center text-3xl">🪒</div>
     <div class="mt-2 text-center text-7xl">${q.shape || '⬜'}</div>
     <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2" id="choices"></div>
   `;
