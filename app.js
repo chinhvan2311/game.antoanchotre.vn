@@ -68,6 +68,8 @@ const state = {
   lastSubject: "tapdoc",
 };
 
+state.selectedKidIdInModal = null;
+
 async function loadActivities() {
   const res = await fetch("activities.json");
   const data = await res.json();
@@ -206,10 +208,14 @@ function renderKidsModal() {
     btn.className = "btn btn-ghost flex items-center justify-between";
     btn.innerHTML = `<span class="flex items-center gap-2"><span class="text-xl">${k.emoji}</span><span class="font-bold">${k.name}</span></span><span class="text-sm text-slate-600">⭐ ${k.stats.totalScore}</span>`;
     btn.onclick = () => {
-      setCurrentKid(k);
-      closeModal("modalKids");
+      state.selectedKidIdInModal = k.id;
+      setCurrentKid(k); // vẫn cho phép chuyển bé hiện tại
+      renderKidsModal(); // re-render để highlight (nếu anh muốn)
     };
     list.appendChild(btn);
+    if (state.selectedKidIdInModal === k.id) {
+      btn.classList.add("ring-4", "ring-indigo-300");
+    }
   });
 }
 
@@ -836,6 +842,27 @@ function wireEvents() {
     c.width = window.innerWidth;
     c.height = window.innerHeight;
   });
+
+  $("#btnChangeAvatar").onclick = () => {
+    if (!state.selectedKidIdInModal) {
+      // chưa chọn bé
+      const err = $("#nameError");
+      err.textContent = "Con hãy chọn 1 bé trong danh sách trước nhé 🙂";
+      err.classList.remove("hidden");
+      return;
+    }
+
+    // mở picker nếu chưa render
+    renderAvatarPicker(state.currentKid?.emoji || "🧒");
+
+    // Khi chọn xong avatar, cập nhật cho bé được chọn
+    const hidden = document.querySelector("#selectedAvatar");
+    if (!hidden) return;
+
+    // Gắn handler “mỗi lần avatar thay đổi”
+    // (Cách đơn giản: thêm 1 nút xác nhận)
+    // Nếu anh muốn auto-save ngay khi click avatar, xem phần 2.5
+  };
 }
 
 async function boot() {
@@ -882,7 +909,18 @@ function renderAvatarPicker(defaultAvatar = "🧒") {
 
     btn.onclick = () => {
       hidden.value = av;
-      // re-render to update highlight
+
+      // ✅ AUTO-SAVE: đổi avatar cho bé đang chọn trong modal
+      if (state.selectedKidIdInModal) {
+        const kid = state.kids.find((k) => k.id === state.selectedKidIdInModal);
+        if (kid) {
+          kid.emoji = av;
+          saveKids();
+          renderTopBar();
+          renderKidsModal();
+        }
+      }
+
       renderAvatarPicker(av);
     };
 
