@@ -1,165 +1,295 @@
 <!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Học Mà Chơi - Lớp 1 (V2)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body class="min-h-screen">
-  <canvas id="confetti" class="pointer-events-none fixed inset-0 z-50 hidden"></canvas>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Học Mà Chơi - Lớp 1 (V2)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="min-h-screen">
+    <canvas
+      id="confetti"
+      class="pointer-events-none fixed inset-0 z-50 hidden"
+    ></canvas>
 
-  <header class="sticky top-0 z-40">
-    <div class="bg-white/70 backdrop-blur border-b border-white/40">
-      <div class="mx-auto max-w-5xl px-3 py-3 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <div class="text-2xl">🎈</div>
-          <div>
-            <div class="font-bold text-slate-800 text-lg leading-tight" style="font-family: 'Baloo 2', system-ui;">Học Mà Chơi</div>
-            <div class="text-xs text-slate-600">V2 • Nhiều bài hơn • Random 🎲</div>
-          </div>
-        </div>
-        <div class="flex items-center gap-2">
-          <button id="btnOpenBackup" class="btn btn-ghost" title="Sao lưu/Khôi phục">💾 Backup</button>
-          <button id="btnOpenLeaderboard" class="btn btn-ghost" title="Bảng xếp hạng">🏆 BXH</button>
-          <button id="btnOpenKids" class="btn btn-ghost" title="Đổi bé">👶 Bé</button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main class="mx-auto max-w-5xl px-3 pb-20">
-    <section class="mt-4">
-      <div class="card">
-        <div class="flex items-center justify-between gap-3">
-          <div class="flex items-center gap-3">
-            <div class="text-3xl" id="kidEmoji">🧒</div>
+    <header class="sticky top-0 z-40">
+      <div class="bg-white/70 backdrop-blur border-b border-white/40">
+        <div
+          class="mx-auto max-w-5xl px-3 py-3 flex items-center justify-between"
+        >
+          <div class="flex items-center gap-2">
+            <div class="text-2xl">🎈</div>
             <div>
-              <div class="text-sm text-slate-600">Bé đang chơi</div>
-              <div class="text-lg font-bold text-slate-800" id="currentKidName">(chưa chọn)</div>
+              <div
+                class="font-bold text-slate-800 text-lg leading-tight"
+                style="font-family: &quot;Baloo 2&quot;, system-ui"
+              >
+                Học Mà Chơi
+              </div>
+              <div class="text-xs text-slate-600">
+                V2 • Nhiều bài học • Random 🎲
+              </div>
             </div>
           </div>
           <div class="flex items-center gap-2">
-            <div class="pill" title="Điểm">⭐ <span id="kidScore">0</span></div>
-            <div class="pill" title="Sao">🌟 <span id="kidStars">0</span></div>
-            <label class="toggle" title="Bật/tắt phát âm tự động">
-              <input id="toggleAutoSpeak" type="checkbox" />
-              <span class="track"></span>
-              <span class="label">🔊 Auto</span>
-            </label>
+            <button
+              id="btnOpenBackup"
+              class="btn btn-ghost"
+              title="Sao lưu/Khôi phục"
+            >
+              💾 Backup
+            </button>
+            <button
+              id="btnOpenLeaderboard"
+              class="btn btn-ghost"
+              title="Bảng xếp hạng"
+            >
+              🏆 BXH
+            </button>
+            <button id="btnOpenKids" class="btn btn-ghost" title="Đổi bé">
+              👶 Bé
+            </button>
           </div>
-        </div>
-        <div class="mt-3 grid grid-cols-3 gap-2 text-center">
-          <div class="mini">📖 Tập đọc<br><span id="progTapDoc" class="font-bold">0</span></div>
-          <div class="mini">🔢 Toán<br><span id="progToan" class="font-bold">0</span></div>
-          <div class="mini">🇬🇧 English<br><span id="progEnglish" class="font-bold">0</span></div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section id="viewHome" class="mt-4">
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <button class="subject subject-tv" data-subject="tapdoc">
-          <div class="text-4xl">📖</div>
-          <div class="mt-1 font-bold text-lg">Tập đọc</div>
-          <div class="text-sm opacity-90">Ghép âm • Sắp xếp • Điền chữ</div>
-        </button>
-        <button class="subject subject-math" data-subject="toan">
-          <div class="text-4xl">🔢</div>
-          <div class="mt-1 font-bold text-lg">Toán</div>
-          <div class="text-sm opacity-90">Cộng trừ • Đếm • Dãy số</div>
-        </button>
-        <button class="subject subject-en" data-subject="english">
-          <div class="text-4xl">🇬🇧</div>
-          <div class="mt-1 font-bold text-lg">Tiếng Anh</div>
-          <div class="text-sm opacity-90">Từ vựng • Alphabet</div>
-        </button>
+    <main class="mx-auto max-w-5xl px-3 pb-20">
+      <section class="mt-4">
+        <div class="card">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="text-3xl" id="kidEmoji">🧒</div>
+              <div>
+                <div class="text-sm text-slate-600">Bé đang chơi</div>
+                <div
+                  class="text-lg font-bold text-slate-800"
+                  id="currentKidName"
+                >
+                  (chưa chọn)
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="pill" title="Điểm">
+                ⭐ <span id="kidScore">0</span>
+              </div>
+              <div class="pill" title="Sao">
+                🌟 <span id="kidStars">0</span>
+              </div>
+              <label class="toggle" title="Bật/tắt phát âm tự động">
+                <input id="toggleAutoSpeak" type="checkbox" />
+                <span class="track"></span>
+                <span class="label">🔊 Auto</span>
+              </label>
+            </div>
+          </div>
+          <div class="mt-3 grid grid-cols-3 gap-2 text-center">
+            <div class="mini">
+              📖 Tập đọc<br /><span id="progTapDoc" class="font-bold">0</span>
+            </div>
+            <div class="mini">
+              🔢 Toán<br /><span id="progToan" class="font-bold">0</span>
+            </div>
+            <div class="mini">
+              🇬🇧 English<br /><span id="progEnglish" class="font-bold">0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="viewHome" class="mt-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <button class="subject subject-tv" data-subject="tapdoc">
+            <div class="text-4xl">📖</div>
+            <div class="mt-1 font-bold text-lg">Tập đọc</div>
+            <div class="text-sm opacity-90">Ghép âm • Sắp xếp • Điền chữ</div>
+          </button>
+          <button class="subject subject-math" data-subject="toan">
+            <div class="text-4xl">🔢</div>
+            <div class="mt-1 font-bold text-lg">Toán</div>
+            <div class="text-sm opacity-90">Cộng trừ • Đếm • Dãy số</div>
+          </button>
+          <button class="subject subject-en" data-subject="english">
+            <div class="text-4xl">🇬🇧</div>
+            <div class="mt-1 font-bold text-lg">Tiếng Anh</div>
+            <div class="text-sm opacity-90">Từ vựng • Alphabet</div>
+          </button>
+        </div>
+
+        <div class="mt-4 card">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="font-bold text-slate-800">Chế độ chơi</div>
+              <div class="text-sm text-slate-600">
+                Mỗi phiên 10 câu • chọn ngẫu nhiên 🎲
+              </div>
+            </div>
+            <div class="text-2xl">🎮</div>
+          </div>
+          <div class="mt-3 grid grid-cols-3 gap-2">
+            <button class="btn btn-primary" data-mode="easy">😊 Dễ</button>
+            <button class="btn btn-primary" data-mode="medium">😎 Vừa</button>
+            <button class="btn btn-primary" data-mode="hard">🤯 Khó</button>
+          </div>
+          <div class="mt-3 text-xs text-slate-500">
+            Tip: đúng là có confetti 🎉 • sai thì thử lại 💪
+          </div>
+        </div>
+      </section>
+
+      <section id="viewGame" class="mt-4 hidden">
+        <div class="card">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-sm text-slate-600" id="gameMeta">
+                Môn • Độ khó
+              </div>
+              <div class="text-lg font-bold text-slate-800" id="gamePrompt">
+                Câu hỏi
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button id="btnSpeak" class="btn btn-ghost" title="Nghe">
+                🔊
+              </button>
+              <button id="btnExitGame" class="btn btn-ghost" title="Thoát">
+                🏠
+              </button>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
+              <div
+                id="progressBar"
+                class="h-3 bg-gradient-to-r from-pink-500 to-indigo-500 w-0"
+              ></div>
+            </div>
+            <div class="mt-1 text-xs text-slate-600">
+              <span id="qIndex">1</span>/<span id="qTotal">10</span>
+            </div>
+          </div>
+          <div id="gameArea" class="mt-4"></div>
+          <div id="feedback" class="mt-3 text-center text-sm font-bold"></div>
+        </div>
+      </section>
+
+      <!-- Kids modal -->
+      <div id="modalKids" class="modal hidden">
+        <div class="modal-card">
+          <div class="flex items-center justify-between">
+            <div class="font-bold text-slate-800">👶 Chọn hoặc tạo bé</div>
+            <button class="btn btn-ghost" data-close="modalKids">✖</button>
+          </div>
+          <div class="mt-3">
+            <label class="text-sm text-slate-600">Tên bé</label>
+            <div class="mt-1 flex gap-2">
+              <input
+                id="kidNameInput"
+                class="input"
+                placeholder="Ví dụ: Na, Bin, Tôm..."
+                maxlength="20"
+              /><button id="btnCreateKid" class="btn btn-primary">
+                Bắt đầu
+              </button>
+            </div>
+            <div id="nameError" class="mt-2 text-sm text-red-600 hidden"></div>
+            <div id="nameSuggestions" class="mt-2 flex flex-wrap gap-2"></div>
+          </div>
+          <div class="mt-4">
+            <div class="text-sm text-slate-600">Danh sách bé</div>
+            <div id="kidsList" class="mt-2 grid grid-cols-1 gap-2"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="mt-4 card">
-        <div class="flex items-center justify-between">
-          <div>
-            <div class="font-bold text-slate-800">Chế độ chơi</div>
-            <div class="text-sm text-slate-600">Mỗi phiên 10 câu • chọn ngẫu nhiên 🎲</div>
-          </div>
-          <div class="text-2xl">🎮</div>
-        </div>
-        <div class="mt-3 grid grid-cols-3 gap-2">
-          <button class="btn btn-primary" data-mode="easy">😊 Dễ</button>
-          <button class="btn btn-primary" data-mode="medium">😎 Vừa</button>
-          <button class="btn btn-primary" data-mode="hard">🤯 Khó</button>
-        </div>
-        <div class="mt-3 text-xs text-slate-500">Tip: đúng là có confetti 🎉 • sai thì thử lại 💪</div>
-      </div>
-    </section>
-
-    <section id="viewGame" class="mt-4 hidden">
-      <div class="card">
-        <div class="flex items-center justify-between">
-          <div>
-            <div class="text-sm text-slate-600" id="gameMeta">Môn • Độ khó</div>
-            <div class="text-lg font-bold text-slate-800" id="gamePrompt">Câu hỏi</div>
-          </div>
-          <div class="flex items-center gap-2">
-            <button id="btnSpeak" class="btn btn-ghost" title="Nghe">🔊</button>
-            <button id="btnExitGame" class="btn btn-ghost" title="Thoát">🏠</button>
-          </div>
-        </div>
-        <div class="mt-3">
-          <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden">
-            <div id="progressBar" class="h-3 bg-gradient-to-r from-pink-500 to-indigo-500 w-0"></div>
-          </div>
-          <div class="mt-1 text-xs text-slate-600"><span id="qIndex">1</span>/<span id="qTotal">10</span></div>
-        </div>
-        <div id="gameArea" class="mt-4"></div>
-        <div id="feedback" class="mt-3 text-center text-sm font-bold"></div>
-      </div>
-    </section>
-
-    <!-- Kids modal -->
-    <div id="modalKids" class="modal hidden"><div class="modal-card">
-      <div class="flex items-center justify-between"><div class="font-bold text-slate-800">👶 Chọn hoặc tạo bé</div><button class="btn btn-ghost" data-close="modalKids">✖</button></div>
+      <!-- Avatar picker -->
       <div class="mt-3">
-        <label class="text-sm text-slate-600">Tên bé</label>
-        <div class="mt-1 flex gap-2"><input id="kidNameInput" class="input" placeholder="Ví dụ: Na, Bin, Tôm..." maxlength="20" /><button id="btnCreateKid" class="btn btn-primary">Bắt đầu</button></div>
-        <div id="nameError" class="mt-2 text-sm text-red-600 hidden"></div>
-        <div id="nameSuggestions" class="mt-2 flex flex-wrap gap-2"></div>
+        <div class="text-sm text-slate-600">Chọn avatar</div>
+        <div id="avatarPicker" class="mt-2 grid grid-cols-6 gap-2"></div>
+        <input type="hidden" id="selectedAvatar" value="🧒" />
       </div>
-      <div class="mt-4"><div class="text-sm text-slate-600">Danh sách bé</div><div id="kidsList" class="mt-2 grid grid-cols-1 gap-2"></div></div>
-    </div></div>
 
-    <!-- Leaderboard modal -->
-    <div id="modalLeaderboard" class="modal hidden"><div class="modal-card">
-      <div class="flex items-center justify-between"><div class="font-bold text-slate-800">🏆 Bảng xếp hạng (trên thiết bị)</div><button class="btn btn-ghost" data-close="modalLeaderboard">✖</button></div>
-      <div class="mt-3 flex gap-2"><button class="btn btn-ghost" data-lb="today">Hôm nay</button><button class="btn btn-ghost" data-lb="week">7 ngày</button><button class="btn btn-ghost" data-lb="all">Tất cả</button></div>
-      <div id="leaderboardList" class="mt-3"></div>
-    </div></div>
-
-    <!-- Backup modal -->
-    <div id="modalBackup" class="modal hidden"><div class="modal-card">
-      <div class="flex items-center justify-between"><div class="font-bold text-slate-800">💾 Sao lưu / Khôi phục</div><button class="btn btn-ghost" data-close="modalBackup">✖</button></div>
-      <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div class="card-inner"><div class="font-bold">⬇️ Export</div><div class="text-sm text-slate-600">Tải file JSON để lưu lại dữ liệu.</div><button id="btnExport" class="btn btn-primary mt-2">Tải backup.json</button></div>
-        <div class="card-inner"><div class="font-bold">⬆️ Import</div><div class="text-sm text-slate-600">Chọn file JSON để khôi phục dữ liệu.</div><input id="fileImport" type="file" accept="application/json" class="mt-2" /><button id="btnImport" class="btn btn-primary mt-2">Khôi phục</button><div class="text-xs text-slate-500 mt-2">* Import sẽ ghi đè dữ liệu hiện tại.</div></div>
+      <!-- Leaderboard modal -->
+      <div id="modalLeaderboard" class="modal hidden">
+        <div class="modal-card">
+          <div class="flex items-center justify-between">
+            <div class="font-bold text-slate-800">
+              🏆 Bảng xếp hạng (trên thiết bị)
+            </div>
+            <button class="btn btn-ghost" data-close="modalLeaderboard">
+              ✖
+            </button>
+          </div>
+          <div class="mt-3 flex gap-2">
+            <button class="btn btn-ghost" data-lb="today">Hôm nay</button
+            ><button class="btn btn-ghost" data-lb="week">7 ngày</button
+            ><button class="btn btn-ghost" data-lb="all">Tất cả</button>
+          </div>
+          <div id="leaderboardList" class="mt-3"></div>
+        </div>
       </div>
-      <div id="backupMsg" class="mt-3 text-sm"></div>
-    </div></div>
 
-  </main>
-
-  <footer class="fixed bottom-0 inset-x-0">
-    <div class="bg-white/70 backdrop-blur border-t border-white/40">
-      <div class="mx-auto max-w-5xl px-3 py-2 flex items-center justify-between text-xs text-slate-600">
-        <div>✨ Học vui mỗi ngày!</div>
-        <div class="flex items-center gap-2"><span id="badgeCount">0</span> 🏅</div>
+      <!-- Backup modal -->
+      <div id="modalBackup" class="modal hidden">
+        <div class="modal-card">
+          <div class="flex items-center justify-between">
+            <div class="font-bold text-slate-800">💾 Sao lưu / Khôi phục</div>
+            <button class="btn btn-ghost" data-close="modalBackup">✖</button>
+          </div>
+          <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="card-inner">
+              <div class="font-bold">⬇️ Export</div>
+              <div class="text-sm text-slate-600">
+                Tải file JSON để lưu lại dữ liệu.
+              </div>
+              <button id="btnExport" class="btn btn-primary mt-2">
+                Tải backup.json
+              </button>
+            </div>
+            <div class="card-inner">
+              <div class="font-bold">⬆️ Import</div>
+              <div class="text-sm text-slate-600">
+                Chọn file JSON để khôi phục dữ liệu.
+              </div>
+              <input
+                id="fileImport"
+                type="file"
+                accept="application/json"
+                class="mt-2"
+              /><button id="btnImport" class="btn btn-primary mt-2">
+                Khôi phục
+              </button>
+              <div class="text-xs text-slate-500 mt-2">
+                * Import sẽ ghi đè dữ liệu hiện tại.
+              </div>
+            </div>
+          </div>
+          <div id="backupMsg" class="mt-3 text-sm"></div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </main>
 
-  <script src="app.js"></script>
-</body>
+    <footer class="fixed bottom-0 inset-x-0">
+      <div class="bg-white/70 backdrop-blur border-t border-white/40">
+        <div
+          class="mx-auto max-w-5xl px-3 py-2 flex items-center justify-between text-xs text-slate-600"
+        >
+          <div>✨ Học vui mỗi ngày!</div>
+          <div class="flex items-center gap-2">
+            <span id="badgeCount">0</span> 🏅
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
 </html>
