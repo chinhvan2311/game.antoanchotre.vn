@@ -1,0 +1,47 @@
+/* Mobile-first playful theme */
+:root{ --shadow: 0 10px 30px rgba(2,6,23,.12); }
+body{ font-family: 'Baloo 2', system-ui, -apple-system, Segoe UI, Roboto, Arial; background: radial-gradient(1200px 800px at 10% 10%, #ffe4e6, transparent 60%), radial-gradient(1200px 800px at 90% 20%, #cffafe, transparent 60%), radial-gradient(1200px 800px at 50% 90%, #ede9fe, transparent 60%), linear-gradient(180deg, #ffffff, #f8fafc); }
+
+.card{ background: rgba(255,255,255,.75); border: 1px solid rgba(255,255,255,.55); border-radius: 1.25rem; box-shadow: var(--shadow); padding: 1rem; }
+.card-inner{ background: rgba(255,255,255,.75); border: 1px solid rgba(255,255,255,.55); border-radius: 1rem; padding: .9rem; }
+
+.btn{ border-radius: 1.25rem; padding: .65rem 1rem; font-weight: 700; transition: transform .08s ease, filter .12s ease; }
+.btn:active{ transform: scale(.98); }
+.btn-primary{ background: linear-gradient(90deg, #ec4899, #6366f1); color: white; box-shadow: 0 10px 20px rgba(236,72,153,.25); }
+.btn-primary:hover{ filter: brightness(1.03); }
+.btn-ghost{ background: rgba(255,255,255,.65); border: 1px solid rgba(148,163,184,.35); color: #0f172a; }
+.btn-ghost:hover{ filter: brightness(1.02); }
+
+.input{ width: 100%; border-radius: 1.25rem; border: 1px solid rgba(148,163,184,.45); padding: .7rem 1rem; background: rgba(255,255,255,.85); outline: none; }
+.input:focus{ box-shadow: 0 0 0 3px rgba(99,102,241,.18); }
+
+.pill{ background: rgba(255,255,255,.7); border: 1px solid rgba(148,163,184,.35); border-radius: 999px; padding: .35rem .65rem; font-weight: 800; color:#0f172a; }
+
+.mini{ background: rgba(255,255,255,.55); border: 1px dashed rgba(148,163,184,.45); border-radius: 1rem; padding: .65rem; }
+
+.subject{ border-radius: 1.5rem; padding: 1rem; text-align: left; color: white; box-shadow: var(--shadow); transform: translateY(0); transition: transform .12s ease; }
+.subject:hover{ transform: translateY(-2px); }
+.subject-tv{ background: linear-gradient(135deg, #f97316, #ec4899); }
+.subject-math{ background: linear-gradient(135deg, #22c55e, #06b6d4); }
+.subject-en{ background: linear-gradient(135deg, #6366f1, #a855f7); }
+
+.modal{ position: fixed; inset: 0; background: rgba(2,6,23,.45); display: flex; align-items: flex-end; justify-content: center; padding: 1rem; z-index: 60; }
+@media (min-width: 640px){ .modal{ align-items: center; } }
+.modal-card{ width: 100%; max-width: 36rem; background: rgba(255,255,255,.85); border: 1px solid rgba(255,255,255,.55); border-radius: 1.5rem; box-shadow: var(--shadow); padding: 1rem; }
+
+.toggle{ display:flex; align-items:center; gap:.5rem; user-select:none; }
+.toggle input{ display:none; }
+.toggle .track{ width: 48px; height: 28px; background: rgba(148,163,184,.35); border-radius: 999px; position: relative; border: 1px solid rgba(148,163,184,.35); }
+.toggle .track::after{ content:''; position:absolute; top: 3px; left: 3px; width: 22px; height: 22px; background: white; border-radius: 999px; transition: left .18s ease; box-shadow: 0 6px 16px rgba(2,6,23,.18); }
+.toggle input:checked + .track{ background: rgba(99,102,241,.6); }
+.toggle input:checked + .track::after{ left: 23px; }
+.toggle .label{ font-weight: 800; color:#0f172a; font-size: .85rem; }
+
+/* Tiny bounce animation for correct */
+@keyframes pop { 0%{transform:scale(.95)} 60%{transform:scale(1.04)} 100%{transform:scale(1)} }
+.pop{ animation: pop .22s ease; }
+
+/* Pieces */
+.piece{ background: rgba(255,255,255,.85); border: 1px solid rgba(148,163,184,.35); border-radius: 1.25rem; padding: .7rem .9rem; font-weight: 900; color: #0f172a; box-shadow: 0 8px 18px rgba(2,6,23,.08); }
+.piece:active{ transform: scale(.98); }
+
