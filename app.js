@@ -21,7 +21,7 @@ function dayKey(t = now()) {
 const state = { activities: [], kids: [], scores: [], currentKid: null, session: null, lastSubject: 'tapdoc' };
 
 async function loadActivities() {
-  const res = await fetch('data/activities.json');
+  const res = await fetch('activities.json');
   const data = await res.json();
   state.activities = data.activities || [];
 }
