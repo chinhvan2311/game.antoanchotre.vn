@@ -2,7 +2,20 @@
   "meta": {
     "version": "1.1",
     "language": "vi",
-    "updatedAt": "2026-05-19"
+    "updatedAt": "2026-05-19",
+    "supportedTypes": [
+      "ghep_am",
+      "sap_xep",
+      "chon_dap_an",
+      "doc_tu_nhan_hinh",
+      "dien_chu_thieu",
+      "toan_hinh_anh",
+      "dem_do_vat",
+      "nhan_dien_hinh",
+      "english_alphabet",
+      "english_image_word",
+      "english_drag_drop"
+    ]
   },
   "activities": [
     {
@@ -298,6 +311,326 @@
       "answer": "A",
       "tts": {
         "text": "A",
+        "lang": "en-US"
+      }
+    },
+     {
+      "id": "tv_doc_hinh_0001",
+      "type": "doc_tu_nhan_hinh",
+      "subject": "tapdoc",
+      "topic": "dong_vat",
+      "difficulty": 1,
+      "prompt": "Nhìn hình và chọn từ đúng",
+      "image": "🐱",
+      "choices": [
+        "con mèo",
+        "con chó",
+        "con gà"
+      ],
+      "answer": "con mèo",
+      "tts": {
+        "text": "Con mèo",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_doc_hinh_0002",
+      "type": "doc_tu_nhan_hinh",
+      "subject": "tapdoc",
+      "topic": "hoa_qua",
+      "difficulty": 1,
+      "prompt": "Nhìn hình và chọn từ đúng",
+      "image": "🍌",
+      "choices": [
+        "quả táo",
+        "quả chuối",
+        "quả cam"
+      ],
+      "answer": "quả chuối",
+      "tts": {
+        "text": "Quả chuối",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_dien_chu_0001",
+      "type": "dien_chu_thieu",
+      "subject": "tapdoc",
+      "topic": "dien_chu",
+      "difficulty": 2,
+      "prompt": "Điền chữ cái còn thiếu",
+      "text": "c_n m_o",
+      "missingLetters": [
+        "o",
+        "è"
+      ],
+      "answer": "con mèo",
+      "tts": {
+        "text": "Con mèo",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_dien_chu_0002",
+      "type": "dien_chu_thieu",
+      "subject": "tapdoc",
+      "topic": "dien_chu",
+      "difficulty": 1,
+      "prompt": "Điền chữ cái còn thiếu",
+      "text": "q_ả t_o",
+      "missingLetters": [
+        "u",
+        "á"
+      ],
+      "answer": "quả táo",
+      "tts": {
+        "text": "Quả táo",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_hinh_0001",
+      "type": "toan_hinh_anh",
+      "subject": "toan",
+      "topic": "cong",
+      "difficulty": 1,
+      "prompt": "🍎🍎 + 🍎 = ?",
+      "visualGroups": [
+        {
+          "icon": "🍎",
+          "count": 2
+        },
+        {
+          "icon": "🍎",
+          "count": 1
+        }
+      ],
+      "choices": [
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3",
+      "tts": {
+        "text": "Hai quả táo cộng một quả táo bằng mấy?",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_hinh_0002",
+      "type": "toan_hinh_anh",
+      "subject": "toan",
+      "topic": "tru",
+      "difficulty": 1,
+      "prompt": "🍓🍓🍓🍓 - 🍓 = ?",
+      "visualGroups": [
+        {
+          "icon": "🍓",
+          "count": 4
+        },
+        {
+          "icon": "🍓",
+          "count": 1
+        }
+      ],
+      "choices": [
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": "3",
+      "tts": {
+        "text": "Bốn quả dâu trừ một quả dâu bằng mấy?",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_dem_0001",
+      "type": "dem_do_vat",
+      "subject": "toan",
+      "topic": "dem_so",
+      "difficulty": 1,
+      "prompt": "Có bao nhiêu con cá?",
+      "items": [
+        "🐟",
+        "🐟",
+        "🐟",
+        "🐟"
+      ],
+      "choices": [
+        "3",
+        "4",
+        "5"
+      ],
+      "answer": "4",
+      "tts": {
+        "text": "Có bao nhiêu con cá?",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "to_dem_0002",
+      "type": "dem_do_vat",
+      "subject": "toan",
+      "topic": "dem_so",
+      "difficulty": 2,
+      "prompt": "Có bao nhiêu ngôi sao?",
+      "items": [
+        "⭐",
+        "⭐",
+        "⭐",
+        "⭐",
+        "⭐"
+      ],
+      "choices": [
+        "4",
+        "5",
+        "6"
+      ],
+      "answer": "5",
+      "tts": {
+        "text": "Có bao nhiêu ngôi sao?",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "tv_hinh_0001",
+      "type": "nhan_dien_hinh",
+      "subject": "tapdoc",
+      "topic": "do_vat",
+      "difficulty": 1,
+      "prompt": "Hình nào là cái bàn?",
+      "image": "🪑",
+      "choices": [
+        "cái ghế",
+        "cái bàn",
+        "cái giường"
+      ],
+      "answer": "cái ghế",
+      "tts": {
+        "text": "Cái ghế",
+        "lang": "vi-VN"
+      }
+    },
+    {
+      "id": "en_alpha_0001",
+      "type": "english_alphabet",
+      "subject": "english",
+      "topic": "alphabet",
+      "difficulty": 1,
+      "prompt": "Học chữ cái tiếng Anh",
+      "letter": "A",
+      "image": "🍎",
+      "word": "Apple",
+      "phonics": "/ˈæp.əl/",
+      "tts": {
+        "text": "A - Apple",
+        "lang": "en-US"
+      }
+    },
+    {
+      "id": "en_alpha_0002",
+      "type": "english_alphabet",
+      "subject": "english",
+      "topic": "alphabet",
+      "difficulty": 1,
+      "prompt": "Học chữ cái tiếng Anh",
+      "letter": "B",
+      "image": "⚽",
+      "word": "Ball",
+      "phonics": "/bɔːl/",
+      "tts": {
+        "text": "B - Ball",
+        "lang": "en-US"
+      }
+    },
+    {
+      "id": "en_image_0001",
+      "type": "english_image_word",
+      "subject": "english",
+      "topic": "animals",
+      "difficulty": 1,
+      "prompt": "Chọn từ tiếng Anh đúng",
+      "image": "🐶",
+      "choices": [
+        "dog",
+        "cat",
+        "bird"
+      ],
+      "answer": "dog",
+      "tts": {
+        "text": "Dog",
+        "lang": "en-US"
+      }
+    },
+    {
+      "id": "en_image_0002",
+      "type": "english_image_word",
+      "subject": "english",
+      "topic": "food",
+      "difficulty": 1,
+      "prompt": "Chọn từ tiếng Anh đúng",
+      "image": "🍞",
+      "choices": [
+        "milk",
+        "bread",
+        "rice"
+      ],
+      "answer": "bread",
+      "tts": {
+        "text": "Bread",
+        "lang": "en-US"
+      }
+    },
+    {
+      "id": "en_drag_0001",
+      "type": "english_drag_drop",
+      "subject": "english",
+      "topic": "animals",
+      "difficulty": 2,
+      "prompt": "Kéo từ đúng vào hình tương ứng",
+      "pairs": [
+        {
+          "image": "🐱",
+          "word": "cat"
+        },
+        {
+          "image": "🐶",
+          "word": "dog"
+        },
+        {
+          "image": "🐟",
+          "word": "fish"
+        }
+      ],
+      "tts": {
+        "text": "Match the animals",
+        "lang": "en-US"
+      }
+    },
+    {
+      "id": "en_drag_0002",
+      "type": "english_drag_drop",
+      "subject": "english",
+      "topic": "fruits",
+      "difficulty": 2,
+      "prompt": "Kéo từ đúng vào hình tương ứng",
+      "pairs": [
+        {
+          "image": "🍎",
+          "word": "apple"
+        },
+        {
+          "image": "🍌",
+          "word": "banana"
+        },
+        {
+          "image": "🍇",
+          "word": "grapes"
+        }
+      ],
+      "tts": {
+        "text": "Match the fruits",
         "lang": "en-US"
       }
     }
